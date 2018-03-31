@@ -89,7 +89,7 @@ commands:
 "cd /vagrant"  
 "python3 newsdata.py"  
 
-## Notes
+## Notes reguarding VIEWS
 The instructions for this assignment state that If the code relies on views
 created in the database, the README file includes the create view statements
 for these views.
@@ -108,6 +108,10 @@ SELECT(REPLACE(log.path, '/article/', '')) AS
 slug FROM log
 WHERE log.path != '/';
 ```  
+
+## Notes reguarding Output
+I have included output.txt [here](output.txt) as an example of the output of
+this program.  
 
 ## License
 MIT Licesne found [here](LICENSE.md)
