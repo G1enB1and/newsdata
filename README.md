@@ -45,7 +45,8 @@ This directory should already be set up with newsdata.sql. See the Requirements
 section above.
 
 Once your files are together in your vagrant directory, open your terminal of
-choice (I recommend GitBash for Windows users) and type the following commands:
+choice (I recommend GitBash for Windows users) and type the following
+commands:  
 "vagrant up"  
 "vagrant ssh"  
 "cd /vagrant"  
@@ -65,7 +66,7 @@ This directory should already be set up with newsdata.sql. See the Requirements
 section above.
 
 Once your files are together in your vagrant directory, open your terminal and
-type the following commands:
+type the following commands:  
 "vagrant up"  
 "vagrant ssh"  
 "cd /vagrant"  
@@ -105,7 +106,8 @@ the view:
 ```CREATE OR REPLACE VIEW slug_from_path AS
 SELECT(REPLACE(log.path, '/article/', '')) AS
 slug FROM log
-WHERE log.path != '/';```  
-  
+WHERE log.path != '/';
+```  
+
 ## License
 MIT Licesne found [here](LICENSE.md)
