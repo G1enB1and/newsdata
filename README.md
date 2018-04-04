@@ -102,7 +102,7 @@ update the view it uses before executing the queries.
 None the less it won't hurt to make the view outside of my script because my
 script will check and update it if needed, so here is the psql to recreate
 the view:  
-
+  
 ```CREATE OR REPLACE VIEW slug_from_path AS
 SELECT(REPLACE(log.path, '/article/', '')) AS
 slug FROM log
@@ -112,7 +112,7 @@ WHERE log.path != '/';
 For your convenience I have placed this code in a file called views.sql
 [here](views.sql) so that you can recreate the views from your terminal after
 you have imported newsdata.sql.  
-
+  
 To do so, use the following psql command:  
 ```psql -d news -f views.sql
 ```  
