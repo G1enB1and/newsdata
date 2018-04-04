@@ -114,9 +114,8 @@ For your convenience I have placed this code in a file called views.sql
 you have imported newsdata.sql.  
   
 To do so, use the following psql command:  
-```psql -d news -f views.sql
-```  
-
+`psql -d news -f views.sql`  
+  
 Again, this step is not necessary since newsdata.py will create the views for
 you.  
   
