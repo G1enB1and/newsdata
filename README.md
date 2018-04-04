@@ -109,6 +109,17 @@ slug FROM log
 WHERE log.path != '/';
 ```  
 
+For your convenience I have placed this code in a file called views.sql
+[here](views.sql) so that you can recreate the views from your terminal after
+you have imported newsdata.sql.  
+
+To do so, use the following psql command:  
+```psql -d news -f views.sql
+```  
+
+Again, this step is not necessary since newsdata.py will create the views for
+you.  
+  
 ## Notes reguarding Output
 I have included output.txt [here](output.txt) as an example of the output of
 this program.  
