@@ -99,17 +99,17 @@ def get_dates_of_errors_over_one_percent():
 
     db, cursor = connect()
 
-    # REPLACE THIS WITH APPROPRIATE CODE - THIS IS A PLACE HOLDER
-    query = ("SELECT date, error_percentage " +
-             "FROM(SELECT log.time::timestamp::date AS date, " +
-             "ROUND((SUM(CASE WHEN log.status = '404 NOT FOUND' " +
-             "THEN 1 ELSE 0 END) " +
-             "/ ( COUNT(*) * 1.0 ) ) * 100, 1 ) " +
-             "AS error_percentage " +
+    # Make a query that returns the date and error percentages
+    # for every date that has more than 1% errors.
+    query = ("SELECT to_char(date, 'FMMonth FMDD, YYYY'), " +
+             "err/total AS ratio " +
+             "FROM (SELECT time::date AS date, " +
+             "count(*) AS total, " +
+             "(SUM((status != '200 OK')::int)::float * 100) " +
+             "AS err " +
              "FROM log " +
-             "GROUP BY date ) " +
-             "AS subq2 " +
-             "WHERE error_percentage > 1")
+             "GROUP BY date) AS errors " +
+             "WHERE err/total > 1")
 
     cursor.execute(query)
 
@@ -118,9 +118,9 @@ def get_dates_of_errors_over_one_percent():
           "1% of requests lead to errors?")
 
     for row in qresult:
-        print("" + str(row[0]) + " — " + str(row[1]) + "% errors")
+        print("" + str(row[0]) + " — " + str(round(row[1],1)) + "% errors")
 
-    print('\n')
+    print('')
     db.close()
 
 if __name__ == "__main__":
