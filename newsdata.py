@@ -118,7 +118,7 @@ def get_dates_of_errors_over_one_percent():
           "1% of requests lead to errors?")
 
     for row in qresult:
-        print("" + str(row[0]) + " — " + str(round(row[1],1)) + "% errors")
+        print("" + str(row[0]) + " — " + str(round(row[1], 1)) + "% errors")
 
     print('')
     db.close()
@@ -128,3 +128,4 @@ if __name__ == "__main__":
     get_3_most_popular_titles_views()
     get_most_popular_authors()
     get_dates_of_errors_over_one_percent()
+    
